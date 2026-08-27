@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/🇫🇷_Français-blue?style=flat-square" alt="Français">
+  <a href="README.en.md"><img src="https://img.shields.io/badge/🇬🇧_English-lightgrey?style=flat-square" alt="English"></a>
+</p>
+
 # SynthGraph — extraction vérifiable de voies de synthèse par tool-calling
 
 ![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
