@@ -4,6 +4,7 @@
 ![LLM](https://img.shields.io/badge/LLM-Qwen3--8B%20(local%2C%20GGUF)-6E40C9)
 ![Neo4j](https://img.shields.io/badge/Neo4j-Knowledge%20Graph-008CC1?logo=neo4j&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
+[![tests](https://github.com/SupperTerryble/SynthGraph/actions/workflows/tests.yml/badge.svg)](https://github.com/SupperTerryble/SynthGraph/actions/workflows/tests.yml)
 
 Un PDF scientifique entre, une voie de synthèse **vérifiable** en sort.
 
@@ -13,6 +14,24 @@ fournie ne la contient pas. Un paramètre absent du papier n'est jamais deviné 
 il devient un trou déclaré (`MissingParameter`).
 
 ---
+
+## L'architecture
+
+<p align="center">
+  <img src="docs/architecture.svg" alt="Architecture SynthGraph : le PDF passe par l'extraction de texte et la focalisation RAG, puis entre dans une boucle agentique où le LLM n'écrit jamais directement dans le graphe — il appelle trois outils dont chaque argument est confronté à la citation jointe, un refus renvoyant le modèle à sa copie. Un validateur déterministe recalcule le bilan élémentaire et dispose d'un droit de veto. En sortie : une voie tracée vers Neo4j, et les trous explicitement déclarés." width="900">
+</p>
+
+Trois idées portent tout le système :
+
+1. **Le modèle n'écrit pas dans le graphe** — il appelle trois outils
+   (`add_precursor`, `add_operation`, `finalize_route`) qui refusent tout
+   argument non prouvé par la citation jointe, et lui renvoient un refus
+   *actionnable* : cite, ou déclare le trou.
+2. **Un validateur déterministe a un droit de veto** — le bilan élémentaire
+   recalculé hors LLM refuse une extraction chimiquement impossible, quoi
+   qu'ait dit le modèle.
+3. **Le trou est une donnée** — l'absence est déclarée (`MissingParameter`),
+   jamais comblée par une valeur plausible.
 
 ## Le résultat en une table
 
@@ -33,15 +52,19 @@ Corpus étendu : **8 papiers, 6 familles de synthèse** (flux, céramique,
 hydrothermale, sol-gel, auto-combustion, bain chimique, réduction chimique).
 Gold annoté à la main : 89 contrôles, 0 erreur.
 
-## L'architecture en trois idées
+## Tests
 
-1. **Le modèle n'écrit pas dans le graphe** — il appelle trois outils
-   (`add_precursor`, `add_operation`, `finalize_route`) qui refusent tout
-   argument non prouvé par la citation jointe.
-2. **Un validateur déterministe a un droit de veto** — le bilan élémentaire
-   recalculé refuse une extraction chimiquement impossible, quoi qu'ait dit le LLM.
-3. **Le trou est une donnée** — l'absence est déclarée (`MissingParameter`),
-   jamais comblée par une valeur plausible.
+```bash
+pip install -r requirements-tests.txt          # léger : ni torch, ni GPU
+python tests/regression/run_all.py
+```
+
+**56 suites, 835 assertions**, hors ligne, en une trentaine de secondes.
+Trois suites supplémentaires confrontent le gold aux *textes sources* des
+papiers : ces textes sont des articles sous copyright, non versionnés, donc
+ces suites ne tournent qu'en local et sont écartées nommément en CI —
+`run_all.py` les annonce dans son bilan, pour qu'un vert ne puisse pas mentir
+sur ce qui a réellement tourné.
 
 ## Installation
 

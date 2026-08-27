@@ -1,0 +1,66 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  regression:
+    name: non-régression (hors ligne, sans GPU)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements-tests.txt
+
+      - name: Installer les dépendances de test
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-tests.txt
+
+      # Trois suites confrontent le gold aux TEXTES SOURCES des papiers
+      # (logs/odl_*.txt). Ces textes sont des articles sous copyright : ils ne
+      # sont pas versionnés, donc ces suites ne peuvent pas tourner ici. Elles
+      # sont écartées NOMMÉMENT — run_all.py les annonce dans son bilan, pour
+      # qu'un vert ne puisse pas mentir sur ce qui a réellement tourné.
+      - name: Suites de non-régression
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          python tests/regression/run_all.py \
+            --exclure test_focalisation.py,test_geste_duplique.py,test_golds_quatre_passes.py
+
+  garde-fous:
+    name: aucun secret ni chemin absolu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Le dépôt a déjà porté un mot de passe Neo4j en dur et des chemins
+      # "D:/projet/..." — dont deux dans les tests, qui validaient donc le code
+      # d'une ancienne version. Ce garde-fou empêche le retour des deux.
+      - name: Vérifier
+        run: |
+          set -e
+          if grep -rInE 'password:\s*"[^$]' --include=*.yaml --include=*.yml --include=*.json . ; then
+            echo "::error::mot de passe en dur — utilisez une variable d'environnement"
+            exit 1
+          fi
+          if grep -rInE '"[A-Za-z]:/' --include=*.py --include=*.yaml --include=*.json \
+               synthgraph tools tests config ; then
+            echo "::error::chemin absolu Windows — utilisez un chemin relatif à la racine du dépôt"
+            exit 1
+          fi
+          echo "OK — aucun secret ni chemin absolu"

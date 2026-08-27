@@ -1,13 +1,34 @@
+# Dépendances d'exécution — dérivées des imports réels de synthgraph/ et tools/.
+# Pour ne faire tourner que les tests de non-régression, voir requirements-tests.txt
+# (bien plus léger : ni torch, ni llama-cpp, ni chromadb).
+
 # Inférence LLM locale
 llama-cpp-python>=0.3.0
-# Extraction PDF
+torch>=2.4
+
+# Lecture et découpage des PDF
 pymupdf>=1.24
-# Graphe de connaissances
-neo4j>=5.20
+langchain-text-splitters>=0.3
+
 # RAG
 chromadb>=0.5
-sentence-transformers>=3.0
-# Utilitaires
-pyyaml>=6.0
+rank-bm25>=0.2.2
+
+# Graphe de connaissances
+neo4j>=5.20
+
+# Chimie — bilan élémentaire du validateur déterministe
+chempy>=0.8
+numpy>=1.26
+
+# Robustesse des sorties de modèle
+json-repair>=0.30
 pydantic>=2.7
-tqdm>=4.66
+
+# Divers
+pyyaml>=6.0
+requests>=2.31
+
+# Interface d'exploration
+streamlit>=1.36
+streamlit-agraph>=0.0.45

@@ -1,6 +1,10 @@
 """Tests offline A3 (atmosphere sur citation) + A4 (vitesse != duree)."""
+import pathlib
 import sys
-sys.path.insert(0, "D:/projet/SynthGraph_V4.4")
+# Racine du depot, pas un chemin absolu : ce test pointait en dur vers un dossier
+# SynthGraph_V4.4, donc il validait le code d'une ANCIENNE version des que
+# celle-ci existait sur la machine.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 from synthgraph.schemas.step_schema import normalize_step
 from synthgraph.pipeline.runner import _validate_extraction_against_text
 

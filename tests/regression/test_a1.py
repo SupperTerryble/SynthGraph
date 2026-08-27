@@ -1,6 +1,10 @@
 """Tests A1 : re-ancrage des citations sur les lignes de tableau."""
+import pathlib
 import sys
-sys.path.insert(0, "D:/projet/SynthGraph_V4.4")
+# Racine du depot, pas un chemin absolu : ce test pointait en dur vers un dossier
+# SynthGraph_V4.4, donc il validait le code d'une ANCIENNE version des que
+# celle-ci existait sur la machine.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 from synthgraph.pipeline.runner import (
     _candidate_table_rows, _reanchor_values_on_table_rows)
 

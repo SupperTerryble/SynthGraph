@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import subprocess
 import sys
 import tempfile
@@ -30,8 +31,11 @@ from typing import Optional
 
 logger = logging.getLogger("SynthGraph.Vision")
 
-DEFAULT_VISION_MODEL = "D:/projet/models/Qwen2.5-VL-3B-Instruct-Q4_K_M.gguf"
-DEFAULT_VISION_MMPROJ = "D:/projet/models/mmproj-Qwen2.5-VL-3B-Instruct-f16.gguf"
+# Emplacement des poids : variable d'environnement MODELS_DIR, sinon ./models.
+# Ces constantes ont porte un chemin absolu propre a une machine.
+_MODELS_DIR = Path(os.environ.get("MODELS_DIR", "models"))
+DEFAULT_VISION_MODEL = str(_MODELS_DIR / "Qwen2.5-VL-3B-Instruct-Q4_K_M.gguf")
+DEFAULT_VISION_MMPROJ = str(_MODELS_DIR / "mmproj-Qwen2.5-VL-3B-Instruct-f16.gguf")
 WORKER_PATH = Path(__file__).with_name("vision_worker.py")
 BASE_TIMEOUT_S = 180          # chargement modèle
 PER_QUERY_TIMEOUT_S = 40

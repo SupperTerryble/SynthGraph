@@ -13,6 +13,17 @@ effacees, laissant le projet sans filet. Rapatriees ici le 20/08.
 Usage :
     python tests/regression/run_all.py
     python tests/regression/run_all.py -v      # sortie complete de chaque suite
+    python tests/regression/run_all.py --exclure a.py,b.py
+
+--exclure ecarte des suites NOMMEMENT, et dit lesquelles. Il existe pour un seul
+cas : les suites qui confrontent le gold aux TEXTES SOURCES des papiers
+(logs/odl_*.txt). Ces textes ne sont pas versionnes — ce sont des articles sous
+copyright — donc ces suites ne peuvent pas tourner en CI publique. Elles restent
+lancees en local, ou le corpus existe.
+
+Ne vous servez JAMAIS de --exclure pour faire taire une suite qui echoue : une
+suite ecartee est annoncee dans le bilan, precisement pour qu'un vert ne puisse
+pas mentir sur ce qui a reellement tourne.
 """
 from __future__ import annotations
 
@@ -24,11 +35,36 @@ ICI = Path(__file__).resolve().parent
 VERBEUX = "-v" in sys.argv
 
 
+def _exclusions() -> set[str]:
+    if "--exclure" not in sys.argv:
+        return set()
+    i = sys.argv.index("--exclure")
+    if i + 1 >= len(sys.argv):
+        return set()
+    return {n.strip() for n in sys.argv[i + 1].split(",") if n.strip()}
+
+
 def main() -> int:
     suites = sorted(f for f in ICI.glob("test_*.py"))
     if not suites:
         print("aucune suite trouvee")
         return 1
+
+    exclues = _exclusions()
+    inconnues = exclues - {f.name for f in suites}
+    if inconnues:
+        # Un nom mal orthographie exclurait... rien, et la suite visee tournerait
+        # quand meme. Pire dans l'autre sens : on croirait avoir couvert un cas.
+        print("REFUS : --exclure nomme des suites inexistantes :")
+        for x in sorted(inconnues):
+            print(f"  - {x}")
+        return 1
+    if exclues:
+        print(f"{len(exclues)} suite(s) ECARTEE(S) — corpus source absent :")
+        for x in sorted(exclues):
+            print(f"  - {x}")
+        print()
+        suites = [f for f in suites if f.name not in exclues]
 
     # Ces suites doivent tourner HORS LIGNE. Un script qui charge un modele
     # n'a rien a faire ici : le 20/08, un diagnostic GPU rapatrie par erreur a
@@ -78,8 +114,9 @@ def main() -> int:
         if VERBEUX or r.returncode != 0:
             print("        " + "\n        ".join(sortie.strip().splitlines()[-25:]))
 
+    ecart = f" | {len(exclues)} ecartee(s)" if exclues else ""
     print(f"\n{len(suites)} suites | {total_ok} assertions OK | {total_ko} echecs "
-          f"| {echecs} suite(s) en echec")
+          f"| {echecs} suite(s) en echec{ecart}")
     return 1 if echecs else 0
 
 

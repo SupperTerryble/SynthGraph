@@ -1,0 +1,16 @@
+# Strict nécessaire pour `python tests/regression/run_all.py`.
+#
+# Les suites de non-régression tournent HORS LIGNE et SANS GPU : elles vérifient
+# les garde-fous (une citation prouve-t-elle la valeur ?) sur des cas figés, pas
+# le comportement d'un modèle. D'où l'absence de torch, llama-cpp et chromadb —
+# la CI s'installe en une trentaine de secondes.
+#
+# Liste vérifiée dans un venv vierge : 56 suites, 835 assertions, 0 échec.
+
+langchain-text-splitters>=0.3
+json-repair>=0.30
+rank-bm25>=0.2.2
+numpy>=1.26
+pydantic>=2.7
+pyyaml>=6.0
+requests>=2.31

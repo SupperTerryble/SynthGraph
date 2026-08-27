@@ -8,10 +8,14 @@ Trois configurations comparees sur le MEME appel :
 On regarde : un tool_call est-il emis, et le contenu contient-il <think> ?
 """
 import json
+import os
 import sys
+from pathlib import Path
+
 from llama_cpp import Llama
 
-MODEL = sys.argv[1] if len(sys.argv) > 1 else "D:/projet/models/Qwen3-8B-Q4_K_M.gguf"
+MODEL = sys.argv[1] if len(sys.argv) > 1 else str(
+    Path(os.environ.get("MODELS_DIR", "models")) / "Qwen3-8B-Q4_K_M.gguf")
 
 TOOLS = [{
     "type": "function",

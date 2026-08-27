@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import pathlib
 import re
 import sys
@@ -33,7 +34,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-MODELS_DIR = Path("D:/projet/models")
+MODELS_DIR = Path(os.environ.get("MODELS_DIR", "models"))
 GOLD = ROOT / "data" / "gold" / "gold_sr2iro4.json"
 PDF_DIR = ROOT / "data" / "bench_night"
 

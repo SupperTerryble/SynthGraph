@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+  <style>
+    .bg   { fill: #ffffff; }
+    .box  { fill: #ffffff; stroke: #d0d7de; stroke-width: 1.5; }
+    .zone { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    .t    { fill: #1f2328; font-size: 13px; }
+    .tb   { fill: #1f2328; font-size: 13.5px; font-weight: 600; }
+    .tm   { fill: #656d76; font-size: 11px; }
+    .zl   { fill: #656d76; font-size: 11px; font-weight: 600; letter-spacing: .08em; }
+    .arr  { stroke: #656d76; stroke-width: 1.6; fill: none; }
+    .chip { fill: #f6f8fa; stroke: #8250df; stroke-width: 1.4; }
+    .chipt{ fill: #6639ba; font-size: 12px; font-family: ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .guard{ fill: #fff8f6; stroke: #cf222e; stroke-width: 1.6; }
+    .gt   { fill: #a40e26; font-size: 12.5px; font-weight: 600; }
+    .veto { fill: #fff8f6; stroke: #cf222e; stroke-width: 2; }
+    .ok   { fill: #f2fbf4; stroke: #2da44e; stroke-width: 1.6; }
+    .okt  { fill: #1a7f37; font-size: 12.5px; font-weight: 600; }
+    .rej  { stroke: #cf222e; stroke-width: 1.6; fill: none; stroke-dasharray: 5 3; }
+    .rejt { fill: #cf222e; font-size: 11.5px; }
+    .okl  { stroke: #2da44e; stroke-width: 1.6; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .bg   { fill: #0d1117; }
+      .box  { fill: #161b22; stroke: #30363d; }
+      .zone { fill: #10151c; stroke: #30363d; }
+      .t    { fill: #e6edf3; }
+      .tb   { fill: #e6edf3; }
+      .tm   { fill: #8b949e; }
+      .zl   { fill: #8b949e; }
+      .arr  { stroke: #8b949e; }
+      .chip { fill: #1c1428; stroke: #a371f7; }
+      .chipt{ fill: #d2a8ff; }
+      .guard{ fill: #24141a; stroke: #f85149; }
+      .gt   { fill: #ff8b83; }
+      .veto { fill: #24141a; stroke: #f85149; }
+      .ok   { fill: #101f16; stroke: #3fb950; }
+      .okt  { fill: #56d364; }
+      .rej  { stroke: #f85149; }
+      .rejt { fill: #ff8b83; }
+      .okl  { stroke: #3fb950; }
+      #ah path { fill: #8b949e; }
+      #ar path { fill: #f85149; }
+      #ag path { fill: #3fb950; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="8" refY="3.2" orient="auto"><path d="M0,0 L8,3.2 L0,6.4 z" fill="#656d76"/></marker>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="3.2" orient="auto"><path d="M0,0 L8,3.2 L0,6.4 z" fill="#cf222e"/></marker>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="8" refY="3.2" orient="auto"><path d="M0,0 L8,3.2 L0,6.4 z" fill="#2da44e"/></marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="900" height="560"/>
+
+  <rect class="box" x="30" y="26" width="120" height="46" rx="8"/>
+  <text class="tb" x="90" y="47" text-anchor="middle">PDF</text>
+  <text class="tm" x="90" y="62" text-anchor="middle">article scientifique</text>
+
+  <path class="arr" d="M152 49 H 210" marker-end="url(#ah)"/>
+
+  <rect class="box" x="214" y="26" width="150" height="46" rx="8"/>
+  <text class="tb" x="289" y="47" text-anchor="middle">Extraction texte</text>
+  <text class="tm" x="289" y="62" text-anchor="middle">PyMuPDF · cache disque</text>
+
+  <path class="arr" d="M366 49 H 424" marker-end="url(#ah)"/>
+
+  <rect class="box" x="428" y="26" width="160" height="46" rx="8"/>
+  <text class="tb" x="508" y="47" text-anchor="middle">Focalisation RAG</text>
+  <text class="tm" x="508" y="62" text-anchor="middle">ChromaDB · passages utiles</text>
+
+  <path class="arr" d="M508 74 V 108" marker-end="url(#ah)"/>
+
+  <rect class="zone" x="30" y="112" width="840" height="230" rx="10"/>
+  <text class="zl" x="48" y="133">BOUCLE AGENTIQUE — LE MODÈLE N'ÉCRIT JAMAIS DANS LE GRAPHE</text>
+
+  <rect class="box" x="52" y="152" width="190" height="76" rx="8"/>
+  <text class="tb" x="147" y="180" text-anchor="middle">LLM local</text>
+  <text class="tm" x="147" y="197" text-anchor="middle">Qwen3-8B · Q4_K_M</text>
+  <text class="tm" x="147" y="212" text-anchor="middle">llama.cpp · mode &lt;think&gt;</text>
+
+  <path class="arr" d="M244 178 H 320" marker-end="url(#ah)"/>
+  <text class="tm" x="282" y="170" text-anchor="middle">appel d'outil</text>
+  <text class="tm" x="282" y="196" text-anchor="middle">+ citation jointe</text>
+
+  <rect class="box" x="324" y="146" width="230" height="112" rx="8"/>
+  <text class="tb" x="439" y="167" text-anchor="middle">Les 3 outils exposés</text>
+  <rect class="chip" x="338" y="176" width="202" height="22" rx="5"/>
+  <text class="chipt" x="439" y="191" text-anchor="middle">add_precursor()</text>
+  <rect class="chip" x="338" y="202" width="202" height="22" rx="5"/>
+  <text class="chipt" x="439" y="217" text-anchor="middle">add_operation()</text>
+  <rect class="chip" x="338" y="228" width="202" height="22" rx="5"/>
+  <text class="chipt" x="439" y="243" text-anchor="middle">finalize_route()</text>
+
+  <path class="arr" d="M556 202 H 618" marker-end="url(#ah)"/>
+
+  <rect class="guard" x="622" y="150" width="226" height="104" rx="8"/>
+  <text class="gt" x="735" y="174" text-anchor="middle">GARDE-FOU</text>
+  <text class="t" x="735" y="196" text-anchor="middle">La citation contient-elle</text>
+  <text class="t" x="735" y="213" text-anchor="middle">littéralement la valeur ?</text>
+  <text class="tm" x="735" y="236" text-anchor="middle">unités, hydrates, négations,</text>
+  <text class="tm" x="735" y="249" text-anchor="middle">nombres piégés (2H₂O)</text>
+
+  <path class="rej" d="M735 256 V 300 H 147 V 232" marker-end="url(#ar)"/>
+  <text class="rejt" x="441" y="316" text-anchor="middle">non → refus actionnable renvoyé au modèle : il doit citer, ou déclarer le trou</text>
+
+  <path class="okl" d="M848 202 H 878 V 380 H 698" marker-end="url(#ag)"/>
+  <text class="okt" x="866" y="292" text-anchor="middle" transform="rotate(90 866 292)">oui</text>
+
+  <rect class="veto" x="248" y="356" width="448" height="70" rx="8"/>
+  <text class="gt" x="472" y="381" text-anchor="middle">VALIDATEUR DÉTERMINISTE — DROIT DE VETO</text>
+  <text class="t" x="472" y="401" text-anchor="middle">bilan élémentaire recalculé, hors LLM</text>
+  <text class="tm" x="472" y="417" text-anchor="middle">une extraction chimiquement impossible est rejetée, quoi qu'ait dit le modèle</text>
+
+  <path class="rej" d="M248 391 H 147 V 232" marker-end="url(#ar)"/>
+  <text class="rejt" x="196" y="345" text-anchor="middle">veto</text>
+
+  <path class="okl" d="M472 428 V 462" marker-end="url(#ag)"/>
+
+  <rect class="ok" x="120" y="466" width="330" height="66" rx="8"/>
+  <text class="okt" x="285" y="490" text-anchor="middle">Voie de synthèse tracée</text>
+  <text class="t" x="285" y="509" text-anchor="middle">chaque valeur adossée à sa citation</text>
+  <text class="tm" x="285" y="524" text-anchor="middle">→ Neo4j (Cypher) · VOIES_DE_SYNTHESE.md</text>
+
+  <rect class="box" x="470" y="466" width="310" height="66" rx="8"/>
+  <text class="tb" x="625" y="490" text-anchor="middle">Trous déclarés</text>
+  <text class="t" x="625" y="509" text-anchor="middle"><tspan font-family="ui-monospace,Consolas,monospace">MissingParameter</tspan></text>
+  <text class="tm" x="625" y="524" text-anchor="middle">l'absence est une donnée, pas un blanc à combler</text>
+
+  <path class="arr" d="M450 499 H 466" marker-end="url(#ah)"/>
+</svg>
