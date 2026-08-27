@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+logs/
+data/corpus*/
+data/bench_night/
+*.pdf
+*.gguf
+*.db
+*.sqlite3
+*.log
+.env

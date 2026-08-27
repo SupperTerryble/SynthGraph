@@ -1,0 +1,287 @@
+{
+  "cvd_mos2": {
+    "reference": "Zhu et al., npj 2D Materials and Applications (2017) — CVD de MoS2 2D",
+    "target": "MoS2 (mono- et few-layer, sur graphene)",
+    "method_type": "depot chimique en phase vapeur (CVD)",
+    "precursors": [
+      {
+        "formula": "MoO2",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "1 mg, Sigma-Aldrich 99 %. Choisi PLUTOT que MoO3 : la reaction est en une seule etape (MoO2 + 3 S -> MoS2 + SO2), la sulfuration de MoO3 en demande plusieurs."
+      },
+      {
+        "formula": "S",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "300 mg, Aladdin 99,999 %. Chauffe SEPAREMENT du four principal, avec son propre profil thermique."
+      }
+    ],
+    "vessel": "nacelle (boat) contenant le MoO2, dans un systeme CVD ; grilles MEB sur porte-echantillon ceramique, face vers le bas au-dessus de la nacelle",
+    "atmosphere": "Ar 99,999 % (gaz vecteur), 200 sccm pour le few-layer et 500 sccm pour le monolayer",
+    "washing": null,
+    "citations": [
+      "Graphene-supported TEM grids were mounted onto a home-built ceramic carrier and loaded into a CVD system, facing down above a boat containing 1 mg of MoO2 precursors (Sigma-Aldrich, 99%)",
+      "the furnace was ﬁrstly heated to 300 °C for 10 min and held for additional 10 min, and then heated to 750 °C in 40 min and kept for next 25 min",
+      "heating of 300 mg of sulfur source (Aladdin, 99.999%) was started, with its temperature reaching 180 °C in 2 min, and then held for the next 10 min",
+      "argon (99.999%) was used as the carrier gas, with an optimized ﬂow rate of 200 standard-state cubic centimeter per minute (sccm) for growing few-layer samples and of 500 sccm for monolayer samples",
+      "The total growth time lasts for about 10 min, and the furnace cooled down naturally",
+      "At about 15 min after the furnace temperature reached 750 °C, heating of 300 mg of sulfur source (Aladdin, 99.999%) was started"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "four principal",
+        "ratio": "1 mg MoO2 : 300 mg S",
+        "seq": "300 °C atteint en 10 min -> maintien 10 min -> 750 °C atteint en 40 min -> maintien 25 min -> refroidissement naturel"
+      },
+      {
+        "id": "source de soufre",
+        "ratio": "300 mg S",
+        "seq": "chauffe demarree 15 min APRES l'atteinte de 750 °C -> 180 °C en 2 min -> maintien 10 min"
+      },
+      {
+        "id": "croissance",
+        "ratio": "few-layer a 200 sccm, monolayer a 500 sccm",
+        "seq": "duree totale de croissance environ 10 min"
+      }
+    ],
+    "key_values": [
+      300,
+      750,
+      180
+    ],
+    "durations_h": [
+      0.0333,
+      0.1667,
+      0.25,
+      0.4167,
+      0.6667
+    ],
+    "ramp_rates_c_per_h": [],
+    "pieges": [
+      "DEUX profils thermiques INDEPENDANTS : le four (300 puis 750 °C) et la source de soufre (180 °C), demarree 15 min apres l'atteinte des 750 °C. Les confondre donne une recette inexecutable.",
+      "MoO3 est cite pour etre ECARTE : « we choose MoO2, RATHER THAN MoO3 ». L'extraire comme precurseur serait une erreur de lecture.",
+      "Toutes les durees sont en MINUTES (10, 10, 40, 25, 2, 10) : 0,1667 h et 0,6667 h apres conversion.",
+      "200 kV, 24 mrads, 50-70 pA et 50-100 mrads relevent du microscope STEM, pas de la synthese.",
+      "Le graphene n'est pas un precurseur : c'est le SUBSTRAT, produit ailleurs et transfere.",
+      "Les debits 200 et 500 sccm ne sont pas deux etapes mais deux CONDITIONS distinctes, donnant few-layer ou monolayer.",
+      "AJOUTE le 21/08 par la passe de COMPLETUDE — les 15 min du delai « At about 15 min AFTER the furnace temperature reached 750 °C » manquaient au gold. Ce n'est pas la duree d'une operation mais un DELAI entre deux evenements : sans lui le soufre n'arrive pas au bon moment et la synthese echoue. Un chimiste le releve, donc le gold doit le porter. TROU CONNU : le pipeline ne sait pas exprimer un delai, et sa regex de duree n'admet pas la tournure « At about N min after » — l'ecart est assume et visible plutot que masque."
+    ]
+  },
+  "electro_nico": {
+    "reference": "Xie, Miche, Vivier, Turmine, Applied Surface Science — electrodeposition d'alliages Ni-Co en liquide ionique protique",
+    "target": "alliage Ni-Co (48 at% Co) electrodepose sur verre FTO",
+    "method_type": "electrodeposition en liquide ionique protique (EAN)",
+    "precursors": [
+      {
+        "formula": "CH3CH2NH2",
+        "molar_ratio": 1,
+        "role": "reactant",
+        "note": "ethylamine, 70 wt.% dans l'eau, Acros. Reactif de la PREMIERE synthese (le solvant EAN), pas du depot."
+      },
+      {
+        "formula": "HNO3",
+        "molar_ratio": 1,
+        "role": "reactant",
+        "note": "acide nitrique, 68 wt.%. Ajoute GOUTTE A GOUTTE dans l'ethylamine, jamais l'inverse (exothermique)."
+      },
+      {
+        "formula": "NiCl2",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "0,25 M dans l'EAN, Sigma-Aldrich 98 %. Sels SECHES par chauffage et lyophilisation avant emploi."
+      },
+      {
+        "formula": "CoCl2",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "0,25 M dans l'EAN, Sigma-Aldrich 98 %."
+      }
+    ],
+    "vessel": "cellule a trois electrodes (contre-electrode anneau de nickel 15 mm, electrode de travail FTO 0,5 x 0,5 cm, reference fil d'argent en double jonction), placee en BOITE A GANTS",
+    "atmosphere": "argon barbote 15 min dans l'electrolyte ; electrodeposition en boite a gants, sans oxygene",
+    "washing": "le substrat FTO est lave AVANT depot : acetone, ethanol, eau desionisee, 15 minutes chacun",
+    "citations": [
+      "Ethylammonium nitrate (EAN) was prepared by mixing ethylamine and nitric acid with a molar ratio of 1:1",
+      "the nitric acid was added into ethylamine aqueous solution drop by drop under stirring at a controlled temperature (T = -10°C)",
+      "were used as working electrode after washing in acetone, ethanol, and deionized water, for 15 minutes, respectively",
+      "in EAN were prepared by mixing the different compounds under stirring at 70°C for 24 h after weighing",
+      "Before electrochemical measurements, argon was bubbled in the electrolyte for 15 minutes",
+      "All alloys electroplating were performed in the glove box to avoid oxygen contamination and limit water ingress"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "synthese du solvant EAN",
+        "ratio": "ethylamine : HNO3 = 1:1 molaire",
+        "seq": "ajout goutte a goutte sous agitation a -10 °C -> lyophilisation (-86 °C) jusqu'a moins de 100 ppm d'eau"
+      },
+      {
+        "id": "preparation du bain",
+        "ratio": "0,25 M NiCl2 + 0,25 M CoCl2 dans l'EAN",
+        "seq": "agitation a 70 °C pendant 24 h apres pesee"
+      },
+      {
+        "id": "electrodeposition",
+        "ratio": "-1,3 V/Ag/Ag+",
+        "seq": "barbotage d'argon 15 min -> depot a 60 °C pendant 2 h en boite a gants"
+      }
+    ],
+    "key_values": [
+      -10,
+      70,
+      60
+    ],
+    "durations_h": [
+      0.25,
+      24,
+      2
+    ],
+    "ramp_rates_c_per_h": [],
+    "pieges": [
+      "DEUX synthese imbriquees : le liquide ionique EAN est FABRIQUE dans le papier, puis sert de solvant au depot. Les fondre en une seule voie perd l'ordre operatoire.",
+      "ETUDE PARAMETRIQUE : trois potentiels (-1,1 / -1,2 / -1,3 V), deux durees (1 h et 2 h), deux temperatures (60 et 80 °C), QUATRE bains. Ce sont des experiences distinctes, comme les trois pH de cbd_mnse — les empiler donne une recette inexecutable.",
+      "KOH 1 M et KCl ne sont PAS des reactifs de synthese : le KOH est l'electrolyte du test HER, le KCl sert a l'electrochimie de reference.",
+      "Les potentiels -0,50 / -0,59 / -0,94 / -1,2 V releves en voltammetrie cyclique sont de la CARACTERISATION, pas des consignes de depot.",
+      "Le verre FTO n'est pas un precurseur : c'est le SUBSTRAT, achete tout fait (Solems, 80 nm).",
+      "Le lavage a l'acetone/ethanol/eau porte sur le SUBSTRAT avant depot, pas sur le produit apres synthese : l'inverser fausse la sequence.",
+      "5 degree/min (DRX), 80 nm, 0,2 cm2, 15 mm relevent des appareils ou du montage, pas du protocole thermique.",
+      "TROU DE FAMILLE : le potentiel impose (-1,3 V/Ag/Ag+) est LA consigne de cette synthese, et le schema n'a aucune colonne electrique. Aucun autre papier du corpus ne l'exigeait.",
+      "VERIFIE : « argon was bubbled in the electrolyte » et « performed in the glove box » ne donnent AUCUNE atmosphere — les motifs attendent le gaz APRES « in/under », et « boite a gants » n'est pas un nom de gaz. Les deux seules mentions d'atmosphere du papier sont donc manquees, alors qu'elles sont explicites."
+    ]
+  },
+  "broyage_na": {
+    "reference": "Nature Communications — sodiation par broyage a billes de sodium metallique pour batteries Na-ion",
+    "target": "Na3P (particules)",
+    "method_type": "mecanosynthese (broyage a billes), a temperature ambiante",
+    "precursors": [
+      {
+        "formula": "Na",
+        "molar_ratio": 3,
+        "role": "reactant",
+        "note": "sodium metallique en masse (Sigma). « Stoichiometric amounts » : le rapport n'est PAS chiffre dans le texte, il se deduit de la formule Na3P."
+      },
+      {
+        "formula": "P",
+        "molar_ratio": 1,
+        "role": "reactant",
+        "note": "phosphore rouge (Alfa, 325 mesh). « 325 mesh » est une granulometrie, pas une quantite."
+      }
+    ],
+    "vessel": "jarre en acier dur de 30 cm3 d'un broyeur Spex 8000M, chargee de sept billes d'acier dur de 7 g et 12 mm de diametre",
+    "atmosphere": "boite a gants sous argon (chargement et broyage)",
+    "washing": null,
+    "citations": [
+      "Stoichiometric amounts of metallic sodium as bulk (Sigma) and red phosphorus (Alfa, 325 mesh) were ﬁlled into a hard steel ball-milled jar",
+      "of a Spex 8000M ball-miller in an Ar-ﬁlled glove box and equipped with seven hard steel balls each having a weight of 7 g and a diameter of 12 mm",
+      "These solid materials were ball-milled for 2 h to obtain Na3P particles",
+      "The mass ratio of balls to Na3P was maintained at 35"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "broyage",
+        "ratio": "rapport massique billes/Na3P = 35",
+        "seq": "AUCUN traitement thermique : broyage 2 h a temperature ambiante, sous argon"
+      }
+    ],
+    "key_values": [],
+    "durations_h": [
+      2
+    ],
+    "ramp_rates_c_per_h": [],
+    "pieges": [
+      "AUCUNE TEMPERATURE dans cette synthese. C'est le premier papier du corpus dont la voie complete n'a pas un seul palier thermique. Un pipeline oriente four doit rendre une recette VIDE de temperature, pas en inventer une.",
+      "« 900 C for 12 h in air » appartient a un AUTRE compose (le precurseur P2 Na0.67[Fe0.5Mn0.5]O2), produit ailleurs et cite par reference [10]. Le rattacher a Na3P fabrique une recette fausse.",
+      "QUATRE syntheses distinctes dans la meme section Methods : Na3P, Na3Sb, P'2-Na[Fe0.5Mn0.5]O2 et les composites NVPF. Seul Na3P a un protocole complet.",
+      "« durations from 20 min to 2 h » et « 0.5 Na to 2 Na » sont des PLAGES D'EXPLORATION d'une autre synthese, pas des consignes.",
+      "7 g, 12 mm, 30 cm3, sept billes et le rapport 35 decrivent la charge de broyage — le schema n'a aucune colonne pour eux.",
+      "« Stoichiometric amounts » : aucune masse n'est donnee. Le rapport 3:1 vient de la formule visee, pas d'une pesee lue dans le texte.",
+      "TROU DE FAMILLE : frequence/energie de broyage et charge de billes sont LES consignes de la mecanosynthese, et le schema n'en a aucune."
+    ]
+  },
+  "selfondu_cosi": {
+    "reference": "JACS — nanoparticules de monosiliciure de cobalt CoSi en sels fondus LiI-KI",
+    "target": "nanoparticules de CoSi (coeur-coquille a 300 °C, homogenes a 400 °C)",
+    "method_type": "synthese en sels fondus, precedee d'un broyage a billes",
+    "precursors": [
+      {
+        "formula": "Si",
+        "molar_ratio": 2.3,
+        "role": "reactant",
+        "note": "63,2 mg de nanoparticules de silicium (2,3 mmol), Nanomakers 99 %."
+      },
+      {
+        "formula": "CoCl2",
+        "molar_ratio": 1.5,
+        "role": "reactant",
+        "note": "194,8 mg (1,5 mmol), Alfa Aesar 99,7 %."
+      },
+      {
+        "formula": "LiI",
+        "molar_ratio": 0.63,
+        "role": "solvent",
+        "note": "2,9 g (21,7 mmol). SEL FONDU, pas un reactif de la stoechiometrie. Le papier ENONCE le rapport molaire : LiI:KI = 0,63:0,37 (fractions molaires du bain, 21,7/34,4 = 0,63)."
+      },
+      {
+        "formula": "KI",
+        "molar_ratio": 0.37,
+        "role": "solvent",
+        "note": "2,1 g (12,7 mmol). Second constituant du bain eutectique, fraction 0,37."
+      },
+      {
+        "formula": "CH3OH",
+        "molar_ratio": null,
+        "role": "solvent",
+        "note": "methanol (VWR Normapur), uniquement pour le lavage."
+      }
+    ],
+    "vessel": "broyage : jarre etanche de 50 mL d'un broyeur Retsch MM400, une bille d'acier de 62,3 g et 23 mm ; traitement thermique : tube de quartz (28 mm x 345 mm) sur rampe de Schlenk ; sechage : tube de Schlenk",
+    "atmosphere": "vide dynamique 10-3 mbar pendant le traitement thermique et le refroidissement ; manipulation et stockage en boite a gants sous argon (H2O et O2 < 0,5 ppm)",
+    "washing": "methanol, SEPT cycles de centrifugation/redispersion, puis sechage sous vide une nuit",
+    "citations": [
+      "63.2 mg Si nanoparticles (2.3 mmol), 194.8 mg CoCl2 (1.5 mmol), 2.9 g LiI (21.7 mmol) and 2.1 g KI (12.7 mmol) (molar ratio LiI:KI 0.63:0.37) were ball-milled during 2 min at 20 Hz",
+      "Retsch MM400 ball mill airtight vial of 50 mL, filled with one steel ball of 62.3 g with a diameter of 23 mm",
+      "The mixture was loaded in a quartz tube (Ø28×H345mm) which was then connected to a Schlenk line and was evacuated under vacuum",
+      "A vertical furnace from Eraly® was pre-heated to the reaction temperature 300 and 400 °C for core-shell and homogenous nanoparticles, respectively",
+      "Then, the quartz tube was put in the furnace, followed by 6 hours of thermal treatment under dynamic vacuum",
+      "the hot quartz tube was taken out and cooled down to room temperature under vacuum",
+      "The as-prepared mixture was washed in methanol by seven cycles of centrifugation/redispersion and was later dried in a Schlenk tube under vacuum during the night"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "broyage prealable",
+        "ratio": "Si 2,3 : CoCl2 1,5 : LiI 21,7 : KI 12,7 mmol",
+        "seq": "broyage 2 min a 20 Hz pour obtenir une poudre fine bien melangee"
+      },
+      {
+        "id": "traitement en sels fondus",
+        "ratio": "LiI:KI = 0,63:0,37",
+        "seq": "four PREchauffe a 300 °C (coeur-coquille) ou 400 °C (homogene) -> tube introduit -> 6 h sous vide dynamique 10-3 mbar -> tube sorti chaud, refroidi a l'ambiante sous vide"
+      },
+      {
+        "id": "lavage et sechage",
+        "ratio": "",
+        "seq": "sept cycles centrifugation/redispersion au methanol -> sechage sous vide une nuit -> stockage en boite a gants"
+      }
+    ],
+    "key_values": [
+      300,
+      400
+    ],
+    "durations_h": [
+      0.0333,
+      6
+    ],
+    "ramp_rates_c_per_h": [],
+    "pieges": [
+      "300 et 400 °C sont DEUX syntheses distinctes donnant deux produits differents (coeur-coquille et homogene), pas un palier suivi d'un autre.",
+      "Le four est PRECHAUFFE puis le tube y est introduit : il n'y a AUCUNE rampe de montee, et le refroidissement est une trempe a l'air hors du four. Inferer une rampe serait une invention.",
+      "LiI et KI sont le BAIN de sels fondus (solvant), pas des reactifs de la stoechiometrie du CoSi — bien qu'ils soient peses avec les reactifs.",
+      "SiI4 est un SOUS-PRODUIT, piege a l'azote liquide. L'extraire comme precurseur inverse le sens de la reaction.",
+      "TROIS contenants successifs : jarre de broyage, tube de quartz, tube de Schlenk. Un seul champ `vessel` pour la voie entiere en perd deux.",
+      "62,3 g, 23 mm, 50 mL, 28x345 mm decrivent le materiel, pas la charge chimique.",
+      "« dried during the night » : duree NON chiffree. Trou incomblable, a declarer en MissingParameter et non a arrondir a 12 h.",
+      "Le vide dynamique (10-3 mbar) tient lieu d'atmosphere. VERIFIE : « vacuum » EST au vocabulaire et « evacuated under vacuum » est bien reconnu, mais « under DYNAMIC vacuum » ne l'est pas — le qualificatif n'est pas admis entre « under » et « vacuum ». C'est l'atmosphere de l'etape de reaction de 6 h, la plus importante du papier.",
+      "CORRIGE le 21/08 — mon annotation portait 21,7 et 12,7 (millimoles) dans le champ molar_ratio de LiI et KI, alors que le papier ENONCE explicitement « (molar ratio LiI:KI 0.63:0.37) ». Le modele avait raison et le gold avait tort. DEUX echelles de rapport coexistent dans ce papier et ne se melangent pas : le bain de sels est donne en fractions molaires (0,63:0,37), les reactifs en millimoles (Si 2,3 ; CoCl2 1,5). Les fondre en une seule serie serait faux."
+    ]
+  }
+}

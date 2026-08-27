@@ -1,0 +1,416 @@
+{
+  "hydro_czts": {
+    "reference": "Xia et al., Nanoscale Research Letters 9 (2014) — hydrothermal CZTS",
+    "target": "Cu2ZnSnS4 (kesterite)",
+    "method_type": "hydrothermale (eau, bombe de digestion)",
+    "precursors": [
+      {
+        "formula": "CuCl2·2H2O",
+        "molar_ratio": 2,
+        "role": "reactant",
+        "note": "2 mmol"
+      },
+      {
+        "formula": "ZnCl2",
+        "molar_ratio": 2,
+        "role": "reactant",
+        "note": "2 mmol — dose EXCEDENTAIRE volontaire (double de la stoechiometrie Zn de CZTS)"
+      },
+      {
+        "formula": "SnCl2·2H2O",
+        "molar_ratio": 1,
+        "role": "reactant",
+        "note": "1 mmol"
+      },
+      {
+        "formula": "C3H7NO2S",
+        "molar_ratio": 4,
+        "role": "reactant",
+        "note": "L-cysteine, 4 mmol — SOURCE DE SOUFRE, son omission rend la recette irrealisable"
+      },
+      {
+        "formula": "C10H16N2O8",
+        "molar_ratio": 2,
+        "role": "additive",
+        "note": "EDTA, 2 mmol — agent complexant, indispensable a la purete kesterite"
+      },
+      {
+        "formula": "H2O",
+        "molar_ratio": null,
+        "role": "solvent",
+        "note": "20 ml d'eau deionisee"
+      }
+    ],
+    "vessel": "bombe de digestion acide de 50 ml, etuve electrique",
+    "atmosphere": "autogene (bombe fermee) — non precisee dans le texte",
+    "washing": "filtration puis lavage a l'ethanol 30 % et 80 %",
+    "citations": [
+      "2 mmol CuCl2 · 2H2O, 2 mmol of ZnCl2, 1 mmol of SnCl2 · 2H2O, 4 mmol of L-cysteine, and 0 to 3 mmol of EDTA were dispersed in 20 ml of deionized water for 5 min under constant stirring",
+      "the obtained solution was transferred to an acid digestion bomb (50 ml)",
+      "The hydrothermal synthesis was conducted at 170°C to 190°C for 6 to 16 h in an electric oven",
+      "the bomb was cooled down naturally to room temperature",
+      "The final product was filtrated and washed with 30% and 80% ethanol, followed by drying at 60°C in a vacuum oven",
+      "Pure kesterite Cu2ZnSnS4 has been synthesized at 180°C for 12 h from the reaction system containing 2 mmol of EDTA at 2:2:1 of Cu/Zn/Sn"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "CZTS-optimal",
+        "ratio": "2:2:1",
+        "seq": "180 °C (12 h) -> refroidissement naturel -> RT ; sechage 60 °C sous vide"
+      },
+      {
+        "id": "CZTS-plage",
+        "ratio": "2:2:1",
+        "seq": "170-190 °C (6-16 h) — plage exploree"
+      }
+    ],
+    "key_values": [
+      170,
+      180,
+      190,
+      60
+    ],
+    "durations_h": [
+      0.0833,
+      6,
+      12,
+      16
+    ],
+    "ramp_rates_c_per_h": [],
+    "pieges": [
+      "120 °C / 1 h concerne le sechage des FILMS pour la mesure photoelectrochimique, pas la synthese de CZTS.",
+      "250 °C provient de l'etat de l'art (methode hot-injection citee en introduction), ce n'est pas une condition de ce travail.",
+      "Les rapports 2:1:1 et 2:3:1 sont des variantes explorees ; seul 2:2:1 donne la kesterite pure.",
+      "L-cysteine et EDTA sont des composes organiques : les omettre parce qu'ils ne sont pas des oxydes casse la recette.",
+      "La dispersion initiale dure 5 MINUTES (0,0833 h apres conversion). Oubliee a la premiere annotation."
+    ]
+  },
+  "solgel_cuo": {
+    "reference": "Dorner et al., Scientific Reports 9 (2019) — sol-gel CuO poreux",
+    "target": "CuO nanoparticulaire poreux (via precurseur malachite CuCO3·Cu(OH)2)",
+    "method_type": "sol-gel (co-precipitation) + calcination",
+    "precursors": [
+      {
+        "formula": "Cu(CH3COO)2",
+        "molar_ratio": 1,
+        "role": "reactant",
+        "note": "acetate de cuivre aqueux 15 mM"
+      },
+      {
+        "formula": "(NH4)2CO3",
+        "molar_ratio": 1.029,
+        "role": "reactant",
+        "note": "carbonate d'ammonium 15 mM ; rapport [CO3]/[Cu] = 1.029"
+      }
+    ],
+    "vessel": "four a moufle",
+    "atmosphere": "air",
+    "washing": "centrifugation puis lavage a l'ethanol et a l'eau distillee",
+    "citations": [
+      "solutions were prepared by mixing stoichiometric amounts of fresh aqueous 15 mM copper acetate (Sigma Aldrich) and 15 mM ammonia carbonate (Alfa Aesar) solutions at room temperature, while continuously stirring the mixed solution",
+      "the copper-to-carbonate concentration ratio is fixed at [CO32−]/[Cu2+]= 1.029",
+      "the mixed solution was continuously stirred over the defined duration time of tstirring = 2 h",
+      "the gel precipitate was collected by centrifugation, washed with ethanol and distilled water",
+      "dried in a muffle furnace in air at a temperature of 60 °C for a fixed duration of tdrying = 6 h",
+      "decomposed into CuO by annealing in a muffle furnace in air at 400 °C for a fixed duration of tcalcination = 4 h"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "CuO-standard",
+        "ratio": "[CO3]/[Cu] = 1.029 (pH 5.8)",
+        "seq": "agitation 2 h a RT -> sechage 60 °C (6 h, air) -> calcination 400 °C (4 h, air)"
+      },
+      {
+        "id": "CuO-pH5.6",
+        "ratio": "[CO3]/[Cu] = 0.4",
+        "seq": "meme sequence thermique, pH ajuste a 5.6"
+      },
+      {
+        "id": "CuO-pH7.0",
+        "ratio": "[CO3]/[Cu] = 2.5",
+        "seq": "meme sequence thermique, pH ajuste a 7.0"
+      }
+    ],
+    "key_values": [
+      60,
+      400
+    ],
+    "durations_h": [
+      2,
+      6,
+      4
+    ],
+    "ramp_rates_c_per_h": [],
+    "pieges": [
+      "PIEGE MAJEUR : la premiere phrase decrit la voie GENERIQUE vers la malachite (nitrate de cuivre + carbonate de sodium). Les reactifs REELLEMENT employes sont l'acetate de cuivre et le carbonate d'ammonium. Extraire Cu(NO3)2 / Na2CO3 est une erreur.",
+      "5 K/min jusqu'a 400 °C sous air synthetique (60 ml/min) = analyse TGA/DSC, PAS la synthese.",
+      "180 °C pendant 2 h = sechage prealable a la mesure BET, PAS la synthese.",
+      "25 °C = temperature des mesures DLS."
+    ]
+  },
+  "combu_ferrite": {
+    "reference": "Batoo & Ansari, Nanoscale Research Letters 7 (2012) — ferrite Ni-Cu-Zn auto-combustion",
+    "target": "Ni(0.7-x)ZnxCu0.3Fe2O4 (0 <= x <= 0.2, pas de 0.05)",
+    "method_type": "auto-combustion (sol-gel combustion) + calcination",
+    "precursors": [
+      {
+        "formula": "Ni(NO3)2·6H2O",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "melange stoechiometrique"
+      },
+      {
+        "formula": "CuCl",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "melange stoechiometrique"
+      },
+      {
+        "formula": "Zn(NO3)2·6H2O",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "melange stoechiometrique"
+      },
+      {
+        "formula": "Fe(NO3)2·9H2O",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "melange stoechiometrique"
+      },
+      {
+        "formula": "H2O",
+        "molar_ratio": null,
+        "role": "solvent",
+        "note": "eau deionisee"
+      },
+      {
+        "formula": "C2H5OH",
+        "molar_ratio": null,
+        "role": "additive",
+        "note": "quelques gouttes d'ethanol"
+      }
+    ],
+    "vessel": "agitateur magnetique puis four",
+    "atmosphere": "non precisee dans le texte (aucune mention d'atmosphere ; « air » etait une inference de l'annotateur a partir du caractere auto-propage de la combustion)",
+    "washing": null,
+    "citations": [
+      "prepared by auto-combustion method using ‘AR’ grade Ni(NO3)2.6H2O, CuCl, Zn(NO3)2.6H2O, and Fe(NO3)2.9H2O as raw materials",
+      "The stoichiometric mixtures of the mentioned materials were dissolved in deionized water, and few drops of ethyl alcohol were added to it",
+      "The solution was allowed for gel formation on the magnetic stirrer at 65°C with constant stirring",
+      "The gel formed was annealed at 200°C for 24 h, followed by grinding for 0.5 h",
+      "The dried gel was allowed to burn in a self-propagating combustion manner until the whole gel was completely burnt out to form a fluffy loose powder",
+      "The formed powder was heated for 4 h at 600°C to remove any organic material present while maintaining the rate of heating and cooling at 5°C/min and then finally ground for 0.5 h"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "ferrite",
+        "ratio": "stoechiometrique selon x",
+        "seq": "gelification 65 °C -> recuit 200 °C (24 h) -> broyage 0.5 h -> auto-combustion -> 600 °C (4 h, +/- 5 °C/min) -> broyage 0.5 h"
+      }
+    ],
+    "key_values": [
+      65,
+      200,
+      600
+    ],
+    "durations_h": [
+      24,
+      0.5,
+      4
+    ],
+    "ramp_rates_c_per_min": [
+      5
+    ],
+    "ramp_rates_c_per_h": [],
+    "pieges": [
+      "Deux broyages de 0.5 h distincts encadrent la calcination : les fusionner perd une etape.",
+      "CuCl est un chlorure, pas un nitrate comme les trois autres — ne pas l'uniformiser.",
+      "L'auto-combustion est une etape a part entiere sans temperature consignee.",
+      "Le papier ne precise JAMAIS l'atmosphere de calcination — ne pas la deduire du procede.",
+      "La rampe est ecrite « 5°C/min » et vaut pour la montee ET la descente. Ne pas la convertir en 300 °C/h dans le gold : le papier ne l'ecrit pas."
+    ]
+  },
+  "cbd_mnse": {
+    "reference": "Kariper, Materials Research (2018) — MnSe par bain chimique",
+    "target": "MnSe couche mince",
+    "method_type": "depot par bain chimique (CBD)",
+    "precursors": [
+      {
+        "formula": "Mn(NO3)2",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "5 mL de solution 0.001 M"
+      },
+      {
+        "formula": "Se",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "0.01 mol de selenium solide (preparation de la source Se)"
+      },
+      {
+        "formula": "KOH",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "0.01 mol (preparation de la source Se)"
+      },
+      {
+        "formula": "LiAlH4",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "0.01 mol — reducteur, ajoute avant refroidissement du gel ; INFLAMMABLE"
+      },
+      {
+        "formula": "C4H8O2",
+        "molar_ratio": null,
+        "role": "solvent",
+        "note": "20 mL de 1,4-dioxane, evapore ensuite"
+      },
+      {
+        "formula": "C6H15NO3",
+        "molar_ratio": null,
+        "role": "additive",
+        "note": "5 mL de triethanolamine (TEA), agent complexant"
+      },
+      {
+        "formula": "HCl",
+        "molar_ratio": null,
+        "role": "additive",
+        "note": "HCl 8 % — ajustement du pH du bain"
+      },
+      {
+        "formula": "H2O",
+        "molar_ratio": null,
+        "role": "solvent",
+        "note": "40 mL d'eau deionisee dans le bain"
+      }
+    ],
+    "vessel": "becher (bain chimique)",
+    "atmosphere": "non precisee dans le texte (bain ouvert presume, mais aucune mention)",
+    "washing": "filtration de la source Se avant ajout au bain",
+    "citations": [
+      "Twenty milliliters concentrate 1-4 dioxane and 0.01 mol solid selenium are added to a beaker with 0.01 mol KOH",
+      "The mixture is heated at 80 ºC until the 1-4 dioxane evaporates completely",
+      "Then 0.01 mol LiAlH4 is added immediately to the beaker before the gel cools",
+      "The solution is mixed at 1000 rpm and is completed with distilled water to 100 mL",
+      "The components of the baths were 8 % HCl, 5 mL 0.001 M manganese nitrate, 5 mL of the prepared Se source solution, and 5 mL triethanolamine (TEA)",
+      "5 ml 0.001 M manganese nitrate, 5 ml Se source solution and 5 mL TEA were added to a beaker which was filled with 40 ml deionized water",
+      "In order to adjust the pH value of the solution to 10, 9, 8; 2, 4 and 8 mL of 8 % HCl, respectively, were added to the solutions",
+      "The bath remained for 3 hours at 50 ºC"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "source-Se",
+        "ratio": "0.01 mol Se : 0.01 mol KOH : 0.01 mol LiAlH4",
+        "seq": "80 °C jusqu'a evaporation complete du dioxane -> ajout LiAlH4 -> dilution a 100 mL -> filtration (pH 11)"
+      },
+      {
+        "id": "bain-pH10",
+        "ratio": "5 mL Mn(NO3)2 0.001 M : 5 mL source Se : 5 mL TEA : 40 mL H2O",
+        "seq": "2 mL HCl 8 % (pH 10) -> bain 50 °C (3 h)"
+      },
+      {
+        "id": "bain-pH9",
+        "ratio": "identique",
+        "seq": "4 mL HCl 8 % (pH 9) -> bain 50 °C (3 h)"
+      },
+      {
+        "id": "bain-pH8",
+        "ratio": "identique",
+        "seq": "8 mL HCl 8 % (pH 8) -> bain 50 °C (3 h)"
+      }
+    ],
+    "key_values": [
+      80,
+      50
+    ],
+    "durations_h": [
+      3
+    ],
+    "ramp_rates_c_per_h": [],
+    "ph_values": [
+      11,
+      10,
+      9,
+      8
+    ],
+    "pieges": [
+      "La synthese comporte DEUX phases : preparation de la source de selenium PUIS bain de depot. N'extraire que le bain perd la moitie de la recette.",
+      "1000 rpm est une vitesse d'agitation, pas une duree ni une temperature.",
+      "2, 4 et 8 mL de HCl sont des VOLUMES qui fixent respectivement pH 10, 9, 8 — trois bains distincts.",
+      "3 º/min et 0.02 ° relevent de la diffraction X, pas de la synthese.",
+      "Aucune atmosphere n'est enoncee : un bain chimique ouvert se fait a l'air, mais le papier ne le dit pas."
+    ]
+  },
+  "reduc_cu": {
+    "reference": "Khan et al., International Nano Letters 6 (2016) — nanoparticules de Cu par reduction chimique",
+    "target": "nanoparticules de Cu (avec Cu2O)",
+    "method_type": "reduction chimique en milieu aqueux",
+    "precursors": [
+      {
+        "formula": "CuSO4·5H2O",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "solution 0.1 M — sel precurseur"
+      },
+      {
+        "formula": "C6H10O5",
+        "molar_ratio": null,
+        "role": "additive",
+        "note": "amidon 1.2 %, 120 mL — agent de coiffage (capping)"
+      },
+      {
+        "formula": "C6H8O6",
+        "molar_ratio": null,
+        "role": "reactant",
+        "note": "acide ascorbique 0.2 M, 50 mL — REDUCTEUR"
+      },
+      {
+        "formula": "NaOH",
+        "molar_ratio": null,
+        "role": "additive",
+        "note": "1 M, 30 mL — ajoute lentement"
+      },
+      {
+        "formula": "H2O",
+        "molar_ratio": null,
+        "role": "solvent",
+        "note": "eau deionisee"
+      }
+    ],
+    "vessel": "NON PRECISE dans le texte : le recipient de reaction n'est jamais nomme. Le seul contenant cite est un « glass vial », et il sert au STOCKAGE apres sechage, pas a la synthese.",
+    "atmosphere": "non precisee explicitement : les auteurs revendiquent « ambient atmospheric pressure without inert gas protection » — une pression et une NEGATION, pas une atmosphere nommee",
+    "washing": "filtration puis trois lavages a l'eau deionisee et a l'ethanol",
+    "citations": [
+      "Copper sulphate pentahydrate CuSO4 5H2O (0.1 M), Starch (C6H10O5) n (1.2 %), Ascorbic acid C6H8O6 (0.2 M) and Sodium hydroxide NaOH (1 M) were purchased from Sigma Aldrich",
+      "addition of 0.1 M copper (II) sulfate pentahydrate solution into 120 mL of starch (1.2 %) solution with vigorous stirring for 30 min",
+      "50 mL of 0.2 M ascorbic acid solution is added to synthesis solution under continuous rapid stirring",
+      "30 mL of 1 M sodium hydroxide solution was slowly added to the prepared solution with constant stirring and heating at 80 C for 2 h",
+      "the solution was taken from the heat and allowed to settle overnight and the supernatant solution was then discarded cautiously",
+      "The precipitates were separated from the solution by filtration and washed with deionized water and ethanol for three times",
+      "Ocher color precipitates (Fig. 1) obtained are dried at room temperature"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "Cu-NP",
+        "ratio": "CuSO4 0.1 M : amidon 1.2 % (120 mL) : acide ascorbique 0.2 M (50 mL) : NaOH 1 M (30 mL)",
+        "seq": "agitation vigoureuse 30 min (RT) -> ajout ascorbique -> ajout NaOH + chauffage 80 °C (2 h) -> decantation une nuit -> filtration/lavages -> sechage a temperature ambiante"
+      }
+    ],
+    "key_values": [
+      80
+    ],
+    "durations_h": [
+      0.5,
+      2
+    ],
+    "ramp_rates_c_per_h": [],
+    "pieges": [
+      "L'ORDRE d'ajout est essentiel : amidon avant reduction, NaOH en dernier et lentement. Une recette non ordonnee est irreproductible.",
+      "L'acide ascorbique est le REDUCTEUR, pas un simple additif — sa qualification de role change la chimie.",
+      "Le sechage se fait a temperature ambiante : aucune temperature de sechage a inventer.",
+      "40 kV / 30 mA / 25 C relevent de la diffraction X, pas de la synthese.",
+      "« without inert gas protection » est une negation : elle dit ce qui n'a PAS ete fait et ne prouve aucune atmosphere.",
+      "CORRIGE le 21/08 par la passe 4 — j'avais annote « becher » en le DEDUISANT de « vigorous stirring ». Aucun becher n'est mentionne : « beaker » est absent du texte. Meme faute que les trois atmospheres inferees. Le contenant reactionnel est un trou legitime, a declarer en MissingParameter, pas a combler."
+    ]
+  }
+}

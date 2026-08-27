@@ -1,0 +1,30 @@
+{
+  "active_provider": "llama_server",
+  "providers": {
+    "ollama": {
+      "base_url": "http://localhost:11434",
+      "endpoint": "/api/generate",
+      "api_format": "ollama",
+      "quantization": "Q4_K_M (TurboQuant)"
+    },
+    "llama_server": {
+      "base_url": "http://127.0.0.1:11434",
+      "endpoint": "/v1/chat/completions",
+      "api_format": "openai",
+      "quantization": "Q4_K_M"
+    }
+  },
+  "agent_models": {
+    "orchestrateur": "deepseek-r1:8b",
+    "extracteur": "deepseek-r1:8b",
+    "contextuel": "deepseek-r1:8b",
+    "thermodynamicien": "deepseek-r1:8b",
+    "architecte_graphe": "deepseek-r1:8b",
+    "reranker": "deepseek-r1:8b"
+  },
+  "generation_params": {
+    "temperature": 0.1,
+    "max_tokens": 8192,
+    "context_window": 16384
+  }
+}

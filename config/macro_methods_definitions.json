@@ -1,0 +1,37 @@
+{
+  "solid_state": {
+    "definition": "Réaction chimique à l'état solide à haute température (calcination ou frittage). Ne fait pas intervenir de solvant pour la réaction principale.",
+    "standard_steps": ["weighing", "grinding", "pelletizing", "calcination", "cooling"],
+    "equipment": ["mortar and pestle", "ball mill", "hydraulic press", "muffle furnace"]
+  },
+  "flux_method": {
+    "definition": "Croissance cristalline dans un sel fondu (flux) agissant comme solvant à haute température. Permet de baisser la température de réaction.",
+    "standard_steps": ["weighing", "mixing", "heating", "slow_cooling", "flux_removal", "washing"],
+    "equipment": ["platinum or alumina crucible", "furnace", "centrifuge"]
+  },
+  "sol_gel": {
+    "definition": "Synthèse par transition d'un système d'un état liquide (sol) vers un état solide (gel), souvent suivie d'une calcination.",
+    "standard_steps": ["dissolution", "hydrolysis", "condensation", "gelation", "drying", "calcination"],
+    "equipment": ["beaker", "magnetic stirrer", "drying oven", "muffle furnace"]
+  },
+  "hydrothermal": {
+    "definition": "Cristallisation de substances à partir de solutions aqueuses (ou solvothermale si non aqueux) à haute température et haute pression, souvent dans un espace confiné.",
+    "standard_steps": ["mixing", "autoclave_sealing", "heating", "cooling", "washing", "drying"],
+    "equipment": ["teflon-lined autoclave", "oven", "centrifuge"]
+  },
+  "crystal_growth": {
+    "definition": "Croissance monocristalline générique (Czochralski, Bridgman, etc.) impliquant un gradient de température ou le tirage d'un monocristal à partir d'un bain fondu.",
+    "standard_steps": ["melting", "seeding", "pulling", "cooling"],
+    "equipment": ["crystal puller", "induction heating crucible", "seed crystal"]
+  },
+  "thin_film": {
+    "definition": "Dépôt en couches minces sur un substrat (CVD, PVD, ALD, MBE, sputtering, spin coating, dip coating).",
+    "standard_steps": ["substrate_cleaning", "deposition", "annealing"],
+    "equipment": ["vacuum chamber", "sputtering target", "spin coater", "furnace"]
+  },
+  "hybrid": {
+    "definition": "Combinaison complexe ou multi-étapes qui ne rentre pas proprement dans une seule catégorie, ou hybride entre plusieurs grandes méthodes (ex: sol-gel suivi de hydrothermal).",
+    "standard_steps": ["complex_sequence"],
+    "equipment": ["multiple"]
+  }
+}

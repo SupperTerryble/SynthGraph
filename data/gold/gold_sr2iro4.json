@@ -1,0 +1,221 @@
+{
+  "_meta": {
+    "description": "Gold annoté MANUELLEMENT par lecture directe des PDF (17/08/2026).",
+    "corpus": "3 papiers fondamentaux Sr2IrO4 (data/bench_night/)",
+    "methode": "lecture du texte intégral extrait par PyMuPDF, section expérimentale + tableaux",
+    "avertissement": "Les conditions de synthèse de P1 sont dans des TABLEAUX (Tables 1-3), pas dans le texte courant. Tout outil qui exige que la valeur figure dans la phrase citée pénalisera à tort une extraction correcte."
+  },
+  "Crystal growth and intrinsic magnetic behaviour of Sr2IrO4": {
+    "reference": "N. H. Sung et al., Philosophical Magazine",
+    "target": "Sr2IrO4 (+ Sr3Ir2O7, intercroissances)",
+    "method_type": "croissance en flux (flux method)",
+    "precursors": [
+      {
+        "formula": "IrO2",
+        "molar_ratio": 1,
+        "role": "reactant"
+      },
+      {
+        "formula": "SrCO3",
+        "molar_ratio": 2,
+        "role": "reactant"
+      },
+      {
+        "formula": "SrCl2·6H2O",
+        "molar_ratio": 7,
+        "role": "flux",
+        "note": "FLUX — 7 équivalents. Son omission rend la recette irréalisable."
+      }
+    ],
+    "vessel": "creuset de platine couvert d'un couvercle",
+    "atmosphere": "air",
+    "washing": "rinçage à l'eau distillée pour séparer le flux résiduel",
+    "citations": [
+      "Powders of IrO2, SrCO3, and SrCl2 · 6H2O were thoroughly mixed and placed in a platinum crucible covered with a lid",
+      "The crucibles were heated in a programmable box furnace in air then cooled to room temperature",
+      "crystals were separated from the residual flux by rinsing out with distilled water"
+    ],
+    "thermal_sequences": [
+      {
+        "id": "Sr214#1",
+        "ratio": "1:2:7",
+        "seq": "1300 °C → (8 °C/h) → 900 °C → RT"
+      },
+      {
+        "id": "Sr214#2",
+        "ratio": "1:2:7",
+        "seq": "1100 °C → (45 °C/h) → 1300 °C → (8 °C/h) → 900 °C → RT"
+      },
+      {
+        "id": "Sr214#3",
+        "ratio": "1:2:7",
+        "seq": "1300 °C (24 h) → (8 °C/h) → 1100 °C → Quench"
+      },
+      {
+        "id": "Sr214#4",
+        "ratio": "1:2:7",
+        "seq": "1300 °C (24 h) → (8 °C/h) → 1100 °C (100 h) → RT"
+      },
+      {
+        "id": "Sr214-δ#1",
+        "ratio": "1:2:7",
+        "seq": "1300 °C (100 h) → RT"
+      },
+      {
+        "id": "Sr214-δ#2",
+        "ratio": "1:1.8:7",
+        "seq": "1300 °C → (8 °C/h) → 900 °C → RT"
+      },
+      {
+        "id": "Sr214/Sr327#1",
+        "ratio": "1:2:7",
+        "seq": "1150 °C (12 h) → (5 °C/h) → 880 °C → RT"
+      },
+      {
+        "id": "Sr214/Sr327#2",
+        "ratio": "1:2:7",
+        "seq": "1125 °C (12 h) → (5 °C/h) → 880 °C → RT"
+      },
+      {
+        "id": "Sr214/Sr327#3",
+        "ratio": "1:2:7",
+        "seq": "1050 °C (12 h) → (5 °C/h) → 880 °C → RT"
+      },
+      {
+        "id": "Sr327",
+        "ratio": "2:3:7",
+        "seq": "1050 °C (36 h) → (5 °C/h) → 750 °C → RT"
+      }
+    ],
+    "key_values": [
+      750,
+      880,
+      900,
+      1050,
+      1100,
+      1125,
+      1150,
+      1300
+    ],
+    "ramp_rates_c_per_h": [
+      8,
+      45,
+      5
+    ],
+    "pieges": [
+      "8, 45 et 5 sont des VITESSES DE REFROIDISSEMENT (°C/h), pas des durées : les classer en duration_h est une erreur de schéma.",
+      "10 séquences distinctes : n'en retenir qu'une écrase la diversité expérimentale du papier."
+    ],
+    "durations_h": [
+      12,
+      24,
+      36,
+      100
+    ],
+    "_normalisation": "21/08 : key_values ne contient plus que des TEMPERATURES et durations_h est declare explicitement. Auparavant les deux etaient melangees et le comparateur les separait par un seuil de 100 — heuristique qui ne vaut que sur ce corpus et que le code signalait lui-meme comme menteuse ailleurs. Les ensembles effectifs sont INCHANGES (verifie)."
+  },
+  "PhysRevB.49.11890": {
+    "reference": "Crawford et al., Phys. Rev. B 49, 11890 (1994)",
+    "target": "Sr2Ir(1-x)Ru(x)O4 (solution solide)",
+    "method_type": "réaction à l'état solide (céramique)",
+    "precursors": [
+      {
+        "formula": "SrCO3",
+        "role": "reactant"
+      },
+      {
+        "formula": "IrO2",
+        "role": "reactant"
+      },
+      {
+        "formula": "RuO2",
+        "role": "reactant"
+      }
+    ],
+    "atmosphere": "O2 en flux (flowing O2)",
+    "citations": [
+      "Starting materials SrCO3, IrO2, and RuO2 were mixed in proportions to span the solid-solution series and heated in flowing O2",
+      "Typical heating schedules were 900°C, 24 h; 1000°C, 60 h; and 1100°C, 60 h, with many intermediate grindings"
+    ],
+    "thermal_sequences": [
+      {
+        "seq": "900 °C / 24 h → rebroyage → 1000 °C / 60 h → rebroyage → 1100 °C / 60 h",
+        "note": "UNE SEULE recette séquentielle avec rebroyages, PAS trois variantes."
+      }
+    ],
+    "key_values": [
+      900,
+      1000,
+      1100
+    ],
+    "conditional": "jusqu'à 1150 °C possible pour les fortes teneurs en Ru, sans décomposition",
+    "pieges": [
+      "Aucune température au-delà de 1150 °C n'existe dans ce papier : toute valeur supérieure est une hallucination.",
+      "Les basses températures sont imposées par la volatilisation d'IrO2 — contrainte chimique explicite."
+    ],
+    "durations_h": [
+      24,
+      60
+    ],
+    "ramp_rates_c_per_h": [],
+    "_normalisation": "21/08 : key_values ne contient plus que des TEMPERATURES et durations_h est declare explicitement. Auparavant les deux etaient melangees et le comparateur les separait par un seuil de 100 — heuristique qui ne vaut que sur ce corpus et que le code signalait lui-meme comme menteuse ailleurs. Les ensembles effectifs sont INCHANGES (verifie)."
+  },
+  "the-preparation-of-a-strontium-iridium-oxide-sr2iro41-2 (1)": {
+    "reference": "J. J. Randall Jr., L. Katz, R. Ward, JACS 79 (1957)",
+    "target": "Sr2IrO4",
+    "method_type": "réaction à l'état solide",
+    "precursors": [
+      {
+        "formula": "Ir",
+        "role": "reactant",
+        "note": "iridium METAL powder (pas IrO2)"
+      },
+      {
+        "formula": "SrO",
+        "role": "reactant",
+        "variante": true
+      },
+      {
+        "formula": "SrCO3",
+        "role": "reactant",
+        "variante": true
+      },
+      {
+        "formula": "Sr(NO3)2",
+        "role": "reactant",
+        "variante": true
+      },
+      {
+        "formula": "Sr(OH)2",
+        "role": "reactant",
+        "variante": true
+      }
+    ],
+    "atomic_ratio": "Sr/Ir = 2",
+    "atmosphere": "air",
+    "vessel": "nacelle de platine ou de silicate de zirconium",
+    "citations": [
+      "Strontium-iridium oxide is obtained readily by the reaction between iridium metal powder and strontium oxide, carbonate, nitrate or hydroxide at 1200° in air",
+      "a pure product being obtained upon heating for 15 min., regrinding the sample and reheating for 15 min.",
+      "In using the nitrate or hydroxide, the temperature must be brought slowly to 1200° to prevent spattering"
+    ],
+    "thermal_sequences": [
+      {
+        "seq": "1200 °C / 15 min → rebroyage → 1200 °C / 15 min"
+      }
+    ],
+    "key_values": [
+      1200
+    ],
+    "pieges": [
+      "Le précurseur est l'iridium MÉTAL, pas IrO2 : confondre les deux fausse le bilan élémentaire.",
+      "4 variantes de source de strontium (oxyde/carbonate/nitrate/hydroxyde) — n'en extraire qu'une perd 3 voies.",
+      "Montée lente obligatoire avec nitrate/hydroxyde (projections)."
+    ],
+    "durations_h": [
+      0.25
+    ],
+    "ramp_rates_c_per_h": [],
+    "_normalisation": "21/08 : key_values ne contient plus que des TEMPERATURES et durations_h est declare explicitement. Auparavant les deux etaient melangees et le comparateur les separait par un seuil de 100 — heuristique qui ne vaut que sur ce corpus et que le code signalait lui-meme comme menteuse ailleurs. Les ensembles effectifs sont INCHANGES (verifie)."
+  }
+}
